@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Claim History";
+}
+
+<link rel="stylesheet" href="~/css/Index.css" />
+
+<!-- Navbar -->
+<partial name="_Navbar" />
+
+<div class="container">
+    <h2>Claim History</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Claim ID</th>
+                <th>Claimant</th>
+                <th>Hours Worked</th>
+                <th>Hourly Rate (R)</th>
+                <th>Total Amount (R)</th>
+                <th>Date & Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>Thabo Matlala</td>
+                <td>8</td>
+                <td>R150</td>
+                <td>R1200</td>
+                <td>05:00 PM 05/09/2025</td>
+                <td><span style="color:green;">Approved</span></td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Odirile Masemola</td>
+                <td>6</td>
+                <td>R200</td>
+                <td>R1200</td>
+                <td>10:30 AM 04/09/2025</td>
+                <td><span style="color:orange;">Pending</span></td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Sibusiso Mabena</td>
+                <td>5</td>
+                <td>R180</td>
+                <td>R900</td>
+                <td>02:15 PM 03/09/2025</td>
+                <td><span style="color:red;">Rejected</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

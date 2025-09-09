@@ -1,0 +1,134 @@
+﻿/* General page */
+body {
+    background: linear-gradient(to right, #e0f0ff, #f9fbff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Card container */
+.container.login-container {
+    width: 500px;
+    margin: 120px auto 40px auto; /* below navbar */
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: royalblue;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    animation: slideDown 1s ease-in-out;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Row */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+    .form-group label {
+        font-weight: 600;
+        color: #333;
+    }
+
+/* Input & Select */
+.form-control {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+    .form-control:focus {
+        border-color: royalblue;
+        box-shadow: 0 0 8px rgba(65,105,225,0.25);
+        outline: none;
+        transform: scale(1.01);
+    }
+
+/* Button */
+.btn-login {
+    margin-top: 15px;
+    padding: 12px;
+    background: royalblue;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+    .btn-login:hover {
+        background: dodgerblue;
+        transform: scale(1.05);
+    }
+
+/* Error msg */
+.error-msg {
+    color: crimson;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Extra links */
+.extra-links {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+    .extra-links a {
+        color: royalblue;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .extra-links a:hover {
+            color: darkblue;
+            text-decoration: underline;
+        }
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

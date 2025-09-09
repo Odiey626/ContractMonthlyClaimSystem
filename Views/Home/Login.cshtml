@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/css/Login.css" />
+<partial name="_Navbar" />
+
+<div class="container login-container">
+    <h2>Login</h2>
+
+    <form method="post" asp-action="Login">
+        <div class="form-group">
+            <label for="username">Email:</label>
+            <input type="text" id="username" name="username" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="role">Login As:</label>
+            <select id="role" name="role" class="form-control" required>
+                <option value="Lecturer">Lecturer</option>
+                <option value="Coordinator">Coordinator</option>
+                <option value="HR">HR</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-login">Login</button>
+    </form>
+
+    @if (ViewBag.Error != null)
+    {
+        <p class="error-msg">@ViewBag.Error</p>
+    }
+
+    <!-- Extra options -->
+    <div class="extra-links">
+        <p>Don't have an account? <a asp-controller="Home" asp-action="Register">Sign Up</a></p>
+        <p><a asp-controller="Home" asp-action="Home">Go to Home</a></p>
+    </div>
+</div>

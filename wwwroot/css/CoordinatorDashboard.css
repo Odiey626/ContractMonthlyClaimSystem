@@ -1,0 +1,126 @@
+﻿ /* General Page Styling */
+body {
+    background: linear-gradient(to right, #e0f0ff, #f9fbff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    width: 85%;
+    margin: 100px auto 40px auto; /* pushes content below sticky navbar */
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: royalblue;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    animation: slideDown 1s ease-in-out;
+}
+
+/* Table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.05rem;
+    overflow: hidden;
+    border-radius: 10px;
+    animation: fadeUp 1.5s ease-in-out;
+}
+
+    .table th, .table td {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .table th {
+        background: royalblue;
+        color: white;
+        font-size: 1.1rem;
+    }
+
+    .table tr:nth-child(even) {
+        background: #f4f7fb;
+    }
+
+    .table tr:hover {
+        background: #eaf1ff;
+        transform: scale(1.01);
+        transition: all 0.3s ease;
+    }
+
+/* Buttons */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 2px;
+}
+
+.btn-approve {
+    background: seagreen;
+    color: white;
+}
+
+    .btn-approve:hover {
+        background: mediumseagreen;
+        transform: scale(1.05);
+    }
+
+.btn-reject {
+    background: crimson;
+    color: white;
+}
+
+    .btn-reject:hover {
+        background: firebrick;
+        transform: scale(1.05);
+    }
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

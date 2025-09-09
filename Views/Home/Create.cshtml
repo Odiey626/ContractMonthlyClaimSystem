@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Submit Claim";
+}
+
+<link rel="stylesheet" href="~/css/Create.css" />
+
+<!-- Sticky Navbar -->
+<partial name="_Navbar" />
+
+<!-- Page Content -->
+<div class="container">
+    <h2>Submit Your Claim</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="hours">Hours Worked</label>
+            <input type="number" id="hours" name="hours" class="form-control" placeholder="Enter total hours" required />
+        </div>
+
+        <div class="form-group">
+            <label for="rate">Hourly Rate (R)</label>
+            <input type="number" id="rate" name="rate" class="form-control" placeholder="Enter hourly rate" required />
+        </div>
+
+        <div class="form-group">
+            <label for="document">Upload Supporting Document</label>
+            <input type="file" id="document" name="document" class="form-control" />
+        </div>
+
+        <button type="submit">Submit Claim</button>
+    </form>
+</div>

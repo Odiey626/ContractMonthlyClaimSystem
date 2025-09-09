@@ -1,0 +1,123 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<link rel="stylesheet" href="~/css/Home.css" />
+
+<!-- Navbar -->
+<partial name="_Navbar" />
+
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to the Contract Monthly Claim System</h1>
+        <p>Your one-stop solution for submitting and managing contract lecturer claims.</p>
+    </div>
+
+    <!-- About Us -->
+    <section class="about">
+        <h2>About Us</h2>
+        <p>
+            Our system is designed to simplify how contract-based lecturers at our university
+            submit and track their monthly claims. By going digital, coordinators and HR staff
+            can efficiently review, approve, and process claims — reducing paperwork and delays.
+        </p>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step"> Submit your claim with hours worked and documents </div>
+            <div class="step"> Coordinators review and approve/reject </div>
+            <div class="step"> HR processes the payment </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li> - Easy online claim submissions</li>
+            <li> - Transparent approval workflow</li>
+            <li> - Secure data storage</li>
+            <li> - Quick access to claim history</li>
+        </ul>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2>What People Say</h2>
+        <div class="cards">
+            <div class="card">
+                <p>"This system has saved me hours of paperwork!"</p>
+                <span>- Lecturer</span>
+            </div>
+            <div class="card">
+                <p>"Approving claims is now quicker and more transparent."</p>
+                <span>- Coordinator</span>
+            </div>
+            <div class="card">
+                <p>"Processing payments has never been this smooth."</p>
+                <span>- HR Officer</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <p>
+            <strong>Q:</strong> How do I submit a claim?<br />
+            <strong>A:</strong> Navigate to “Submit Claim”, fill in your hours, rate, and upload documents.
+        </p>
+        <p>
+            <strong>Q:</strong> How do I know if my claim was approved?<br />
+            <strong>A:</strong> Check your Claim History page for status updates.
+        </p>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <h2>Where to Find Us</h2>
+        <p>Email: support@claimsystem.ac.za</p>
+        <p>Phone: +27 12 345 6789</p>
+        <p>Address: 123 University Road, Pretoria, South Africa</p>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="links">
+        <h2>Quick Links</h2>
+        <div class="buttons">
+            <a asp-controller="Home" asp-action="Index">Claim History</a>
+            <a asp-controller="Home" asp-action="Create">Submit Claim</a>
+            <a asp-controller="Home" asp-action="CoordinatorDashboard">Coordinator Dashboard</a>
+            <a asp-controller="Home" asp-action="HRDashboard">HR Dashboard</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Contract Monthly Claim System | All Rights Reserved</p>
+    </footer>
+</div>
+
+<!-- Scroll Animation Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section");
+
+        const revealOnScroll = () => {
+            const triggerBottom = window.innerHeight * 0.85;
+            sections.forEach(section => {
+                const boxTop = section.getBoundingClientRect().top;
+                if (boxTop < triggerBottom) {
+                    section.classList.add("visible");
+                }
+            });
+        };
+
+        window.addEventListener("scroll", revealOnScroll);
+        revealOnScroll();
+    });
+</script>

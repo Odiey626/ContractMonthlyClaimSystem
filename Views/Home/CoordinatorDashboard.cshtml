@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Coordinator Dashboard";
+}
+
+<link rel="stylesheet" href="~/css/CoordinatorDashboard.css" />
+
+<!-- Navbar -->
+<partial name="_Navbar" />
+
+<div class="container">
+    <h2>Coordinator Dashboard</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Lecturer Name</th>
+                <th>Month</th>
+                <th>Hours Worked</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Thabo Matlala</td>
+                <td>January</td>
+                <td>40</td>
+                <td>R2000</td>
+                <td><span style="color: orange;">Pending</span></td>
+                <td>
+                    <button class="btn btn-approve">Approve</button>
+                    <button class="btn btn-reject">Reject</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Sibusiso Mabena</td>
+                <td>December</td>
+                <td>35</td>
+                <td>R1750</td>
+                <td><span style="color: orange;">Pending</span></td>
+                <td>
+                    <button class="btn btn-approve">Approve</button>
+                    <button class="btn btn-reject">Reject</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Lerato Khumalo</td>
+                <td>November</td>
+                <td>30</td>
+                <td>R1500</td>
+                <td><span style="color: orange;">Pending</span></td>
+                <td>
+                    <button class="btn btn-approve">Approve</button>
+                    <button class="btn btn-reject">Reject</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "HR Dashboard";
+}
+
+<link rel="stylesheet" href="~/css/HRDashboard.css" />
+
+<!-- Navbar -->
+<partial name="_Navbar" />
+
+<div class="container">
+    <h2>HR Dashboard</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Lecturer Name</th>
+                <th>Month</th>
+                <th>Hours Worked</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Thabo Matlala</td>
+                <td>January</td>
+                <td>40</td>
+                <td>R2000</td>
+                <td><span style="color: green;">Approved</span></td>
+            </tr>
+            <tr>
+                <td>Sibusiso Mabena</td>
+                <td>December</td>
+                <td>35</td>
+                <td>R1750</td>
+                <td><span style="color: green;">Approved</span></td>
+            </tr>
+            <tr>
+                <td>Lerato Khumalo</td>
+                <td>November</td>
+                <td>30</td>
+                <td>R1500</td>
+                <td><span style="color: green;">Approved</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="export-buttons">
+        <button class="btn btn-pdf">Export to PDF</button>
+        <button class="btn btn-excel">Export to Excel</button>
+    </div>
+</div>

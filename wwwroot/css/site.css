@@ -1,0 +1,39 @@
+/* Navbar container */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 40px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    height: 60px;
+}
+
+/* Left side (system name) */
+.system-name {
+    font-style: italic;
+    font-size: 1.0rem;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 0.5px;
+}
+
+/* Right side (links) */
+.nav-right a {
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    color: royalblue;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+    .nav-right a:hover {
+        background: royalblue;
+        color: white;
+        transform: scale(1.05);
+    }
