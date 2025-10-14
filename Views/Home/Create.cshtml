@@ -11,6 +11,33 @@
 <div class="container">
     <h2>Submit Your Claim</h2>
 
+    <!-- Success message -->
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.SuccessMessage
+        </div>
+    }
+
+    <!-- File upload message -->
+    @if (ViewBag.FileMessage != null)
+    {
+        <div class="alert alert-info">
+            @ViewBag.FileMessage
+        </div>
+    }
+
+    <!-- Claim Result -->
+    @if (ViewBag.TotalAmount != null)
+    {
+        <div class="alert alert-secondary">
+            <strong>Hours Worked:</strong> @ViewBag.Hours <br />
+            <strong>Hourly Rate:</strong> R @ViewBag.Rate <br />
+            <strong>Total Claim Amount:</strong> <span style="color:green; font-weight:bold;">R @ViewBag.TotalAmount</span>
+        </div>
+    }
+
+    <!-- Claim Form -->
     <form method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="hours">Hours Worked</label>
@@ -27,6 +54,6 @@
             <input type="file" id="document" name="document" class="form-control" />
         </div>
 
-        <button type="submit">Submit Claim</button>
+        <button type="submit" class="btn btn-primary">Submit Claim</button>
     </form>
 </div>

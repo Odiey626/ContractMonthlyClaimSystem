@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Version 21
+VisualStudioVersion = 17.14.36408.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "DATA6222 Test Practice", "DATA6222 Test Practice\DATA6222 Test Practice.ssmssqlproj", "{1E330738-5D81-8D09-21DC-14358F5F8F41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E330738-5D81-8D09-21DC-14358F5F8F41}.Default|Default.ActiveCfg = Default
+		{9ABDC0D3-3C29-4AD4-99A0-1EC75ACD30F9}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B90102A-F6D5-4764-A46F-E540F80659F1}
+	EndGlobalSection
+EndGlobal

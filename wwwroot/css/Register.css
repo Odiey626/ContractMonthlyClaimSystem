@@ -10,7 +10,7 @@ body {
 /* Card container */
 .container.register-container {
     width: 500px;
-    margin: 120px auto 40px auto; /* space below sticky navbar */
+    margin: 120px auto 40px auto;
     background: #ffffff;
     border-radius: 15px;
     padding: 40px;

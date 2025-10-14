@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<ContractMonthlyClaimSystem.Models.Claim>
+
+@{
     ViewData["Title"] = "HR Dashboard";
 }
 
@@ -10,43 +12,59 @@
 <div class="container">
     <h2>HR Dashboard</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Lecturer Name</th>
-                <th>Month</th>
-                <th>Hours Worked</th>
-                <th>Amount</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Thabo Matlala</td>
-                <td>January</td>
-                <td>40</td>
-                <td>R2000</td>
-                <td><span style="color: green;">Approved</span></td>
-            </tr>
-            <tr>
-                <td>Sibusiso Mabena</td>
-                <td>December</td>
-                <td>35</td>
-                <td>R1750</td>
-                <td><span style="color: green;">Approved</span></td>
-            </tr>
-            <tr>
-                <td>Lerato Khumalo</td>
-                <td>November</td>
-                <td>30</td>
-                <td>R1500</td>
-                <td><span style="color: green;">Approved</span></td>
-            </tr>
-        </tbody>
-    </table>
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Lecturer Name</th>
+                    <th>Date Submitted</th>
+                    <th>Hours Worked</th>
+                    <th>Hourly Rate (R)</th>
+                    <th>Total Amount (R)</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var claim in Model)
+                {
+                    <tr>
+                        <td>@claim.ContractorName</td>
+                        <td>@claim.ClaimDate.ToString("dd MMM yyyy")</td>
+                        <td>@claim.HoursWorked</td>
+                        <td>@claim.HourlyRate</td>
+                        <td>@claim.TotalAmount</td>
+                        <td>
+                            @if (claim.Status == "Approved")
+                            {
+                                <span style="color:green;">@claim.Status</span>
+                            }
+                            else if (claim.Status == "Rejected")
+                            {
+                                <span style="color:red;">@claim.Status</span>
+                            }
+                            else
+                            {
+                                <span style="color:orange;">@claim.Status</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
-    <div class="export-buttons">
-        <button class="btn btn-pdf">Export to PDF</button>
-        <button class="btn btn-excel">Export to Excel</button>
-    </div>
+        <div class="export-buttons" style="margin-top: 20px;">
+            <form asp-action="ExportToPdf" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-pdf"> Export to PDF</button>
+            </form>
+
+            <form asp-action="ExportToExcel" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-excel"> Export to Excel</button>
+            </form>
+        </div>
+    }
+    else
+    {
+        <p>No approved claims found.</p>
+    }
 </div>

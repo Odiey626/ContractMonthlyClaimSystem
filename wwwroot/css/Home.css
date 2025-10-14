@@ -37,7 +37,7 @@ body {
 /* Section Styling */
 section {
     margin: 50px 0;
-    opacity: 0; /* hidden until visible */
+    opacity: 0; 
     transform: translateY(50px);
     transition: all 0.8s ease-in-out;
 }

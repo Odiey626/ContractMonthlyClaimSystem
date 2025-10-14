@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<ContractMonthlyClaimSystem.Models.Claim>
+
+@{
     ViewData["Title"] = "Claim History";
 }
 
@@ -10,47 +12,51 @@
 <div class="container">
     <h2>Claim History</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Claim ID</th>
-                <th>Claimant</th>
-                <th>Hours Worked</th>
-                <th>Hourly Rate (R)</th>
-                <th>Total Amount (R)</th>
-                <th>Date & Time</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>001</td>
-                <td>Thabo Matlala</td>
-                <td>8</td>
-                <td>R150</td>
-                <td>R1200</td>
-                <td>05:00 PM 05/09/2025</td>
-                <td><span style="color:green;">Approved</span></td>
-            </tr>
-            <tr>
-                <td>002</td>
-                <td>Odirile Masemola</td>
-                <td>6</td>
-                <td>R200</td>
-                <td>R1200</td>
-                <td>10:30 AM 04/09/2025</td>
-                <td><span style="color:orange;">Pending</span></td>
-            </tr>
-            <tr>
-                <td>003</td>
-                <td>Sibusiso Mabena</td>
-                <td>5</td>
-                <td>R180</td>
-                <td>R900</td>
-                <td>02:15 PM 03/09/2025</td>
-                <td><span style="color:red;">Rejected</span></td>
-            </tr>
-        </tbody>
-    </table>
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Claim ID</th>
+                    <th>Contractor Name</th>
+                    <th>Hours Worked</th>
+                    <th>Hourly Rate (R)</th>
+                    <th>Total Amount (R)</th>
+                    <th>Date & Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var claim in Model)
+                {
+                    <tr>
+                        <td>@claim.ClaimID</td>
+                        <td>@claim.ContractorName</td>
+                        <td>@claim.HoursWorked</td>
+                        <td>@claim.HourlyRate</td>
+                        <td>@claim.TotalAmount</td>
+                        <td>@claim.ClaimDate.ToString("hh:mm tt dd/MM/yyyy")</td>
+                        <td>
+                            @if (claim.Status == "Approved")
+                            {
+                                <span style="color:green;">@claim.Status</span>
+                            }
+                            else if (claim.Status == "Rejected")
+                            {
+                                <span style="color:red;">@claim.Status</span>
+                            }
+                            else
+                            {
+                                <span style="color:orange;">@claim.Status</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No claims submitted yet.</p>
+    }
 </div>
-

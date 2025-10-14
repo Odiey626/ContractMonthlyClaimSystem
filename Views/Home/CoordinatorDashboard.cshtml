@@ -10,51 +10,78 @@
 <div class="container">
     <h2>Coordinator Dashboard</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Lecturer Name</th>
-                <th>Month</th>
-                <th>Hours Worked</th>
-                <th>Amount</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Thabo Matlala</td>
-                <td>January</td>
-                <td>40</td>
-                <td>R2000</td>
-                <td><span style="color: orange;">Pending</span></td>
-                <td>
-                    <button class="btn btn-approve">Approve</button>
-                    <button class="btn btn-reject">Reject</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Sibusiso Mabena</td>
-                <td>December</td>
-                <td>35</td>
-                <td>R1750</td>
-                <td><span style="color: orange;">Pending</span></td>
-                <td>
-                    <button class="btn btn-approve">Approve</button>
-                    <button class="btn btn-reject">Reject</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Lerato Khumalo</td>
-                <td>November</td>
-                <td>30</td>
-                <td>R1500</td>
-                <td><span style="color: orange;">Pending</span></td>
-                <td>
-                    <button class="btn btn-approve">Approve</button>
-                    <button class="btn btn-reject">Reject</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- Show Success or Info Messages -->
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-info" style="background-color:#e0f7fa; border-left:5px solid #00796b; padding:10px; margin-bottom:15px;">
+            @TempData["Message"]
+        </div>
+    }
+
+    @if (ContractMonthlyClaimSystem.Controllers.HomeController.claimList.Count == 0)
+    {
+        <p>No claims have been submitted yet.</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Claim ID</th>
+                    <th>Hours Worked</th>
+                    <th>Hourly Rate (R)</th>
+                    <th>Total Amount (R)</th>
+                    <th>File</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var claim in ContractMonthlyClaimSystem.Controllers.HomeController.claimList)
+                {
+                    <tr>
+                        <td>@claim.ClaimID</td>
+                        <td>@claim.HoursWorked</td>
+                        <td>@claim.HourlyRate</td>
+                        <td style="color:green;">@claim.TotalAmount.ToString("F2")</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(claim.FileName))
+                            {
+                                <a href="~/uploads/@claim.FileName" target="_blank">View File</a>
+                            }
+                            else
+                            {
+                                <span>No File</span>
+                            }
+                        </td>
+                        <td>
+                            @if (claim.Status == "Pending")
+                            {
+                                <span style="color: orange;">@claim.Status</span>
+                            }
+                            else if (claim.Status == "Approved")
+                            {
+                                <span style="color: green;">@claim.Status</span>
+                            }
+                            else if (claim.Status == "Rejected")
+                            {
+                                <span style="color: red;">@claim.Status</span>
+                            }
+                        </td>
+                        <td>
+                            <form asp-action="ApproveClaim" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@claim.ClaimID" />
+                                <button type="submit" class="btn btn-approve">Approve</button>
+                            </form>
+
+                            <form asp-action="RejectClaim" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@claim.ClaimID" />
+                                <button type="submit" class="btn btn-reject">Reject</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 </div>

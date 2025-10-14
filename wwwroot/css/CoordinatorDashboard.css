@@ -10,7 +10,7 @@ body {
 /* Container */
 .container {
     width: 85%;
-    margin: 100px auto 40px auto; /* pushes content below sticky navbar */
+    margin: 100px auto 40px auto; 
     background: #ffffff;
     border-radius: 15px;
     padding: 30px;
